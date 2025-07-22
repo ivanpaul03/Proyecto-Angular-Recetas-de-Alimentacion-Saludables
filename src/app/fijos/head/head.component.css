@@ -1,0 +1,126 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000000;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin-top: 0;
+}
+
+h1 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+  background: linear-gradient(45deg, #ffb347, #ff7f50, #ffb347);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  text-shadow: none;
+  animation: orangeTone 5s linear infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes orangeTone {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+p {
+  font-size: 1rem;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+
+.fondo {
+  position: relative;
+  width: 99.2vw;
+  height: 180px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.3);
+  background-image: url('/assets/img/bannerNaranja.jpg');
+  background-blend-mode: lighten;
+  background-size: cover;
+  background-position: center;
+}
+
+.video-background {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.video-background video {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.titulo-portada {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  text-shadow: 2px 2px 8px #000a;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.titulo-portada h1 {
+  font-size: 2.4rem;
+  margin-bottom: 0.1rem;
+  position: relative;
+  background: linear-gradient(45deg, #ff9800, #ffb347, #ff9800);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+}
+
+.titulo-portada h1::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  height: 120%;
+  background: rgba(0,0,0,0.55);
+  border-radius: 0.3em;
+  z-index: -1;
+}

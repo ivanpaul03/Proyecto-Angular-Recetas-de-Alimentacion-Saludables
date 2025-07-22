@@ -1,0 +1,52 @@
+<div class="container">
+  <h1>Recetas Saludables con Pescado</h1>
+
+  <div *ngFor="let receta of recetas" class="receta">
+    <h2>{{ receta.titulo }}</h2>
+    <p>{{ receta.descripcion }}</p>
+
+    <img [src]="receta.imagen" alt="{{ receta.titulo }}" class="receta-img" />
+
+    <video controls class="receta-video">
+      <source [src]="receta.video" type="video/mp4" />
+      Tu navegador no soporta videos.
+    </video>
+
+    <form (submit)="agregarOpinion($event, receta.id)">
+      <label for="rating">Valoración:</label>
+      <select
+        id="rating"
+        [(ngModel)]="nuevaOpinion.rating"
+        name="rating"
+        required
+      >
+        <option value="5">⭐️⭐️⭐️⭐️⭐️ - Excelente</option>
+        <option value="4">⭐️⭐️⭐️⭐️ - Muy Bueno</option>
+        <option value="3">⭐️⭐️⭐️ - Bueno</option>
+        <option value="2">⭐️⭐️ - Regular</option>
+        <option value="1">⭐️ - Malo</option>
+      </select>
+
+      <label for="comentario">Comentario:</label>
+      <textarea
+        id="comentario"
+        [(ngModel)]="nuevaOpinion.comentario"
+        name="comentario"
+        rows="4"
+        required
+      ></textarea>
+
+      <button type="submit">Enviar Opinión</button>
+    </form>
+
+    <div class="opiniones">
+      <h3>Opiniones de otros usuarios:</h3>
+      <p *ngIf="receta.opiniones.length === 0">No hay opiniones aún.</p>
+      <div *ngFor="let opinion of receta.opiniones" class="opinion">
+        <strong>{{ opinion.nombre }}</strong> -
+        <span class="rating">⭐️ {{ opinion.rating }}/5</span>
+        <p>{{ opinion.comentario }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="fondo">
+  <h1>Encuentra tu Receta Perfecta y Saludable</h1>
+  <br />
+  <div class="texto">
+    IvanFit Recipes es un movimiento que reivindica el consumo de alimentos
+    nutritivos, elaborados de manera saludable. Impulsamos el movimiento creado
+    por Iván Paúl que abandera el consumo de comida real y defiende el derecho a
+    una buena alimentación.
+  </div>
+  <br /><br />
+
+  <p>Selecciona el ingrediente que deseas potenciar:</p>
+
+  <div class="ingredients">
+    <ng-container
+      *ngFor="
+        let item of ['pollo', 'pescado', 'huevo', 'queso', 'tomate', 'arroz']
+      "
+    >
+      <a
+        class="ingredient-btn"
+        [routerLink]="isLoggedIn ? '/' + item : null"
+        [class.disabled]="!isLoggedIn"
+        (click)="!isLoggedIn && $event.preventDefault()"
+      >
+        <img
+          [src]="'../../../assets/img/' + item + '.png'"
+          [alt]="item"
+          class="ingredient-img"
+        />
+      </a>
+    </ng-container>
+  </div>
+</div>

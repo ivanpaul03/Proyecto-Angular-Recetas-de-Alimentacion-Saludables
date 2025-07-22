@@ -1,0 +1,28 @@
+<br/>
+<h2>Eventos</h2>
+<br/>
+<table class="tabla-eventos">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Fecha</th>
+      <th>Enlace Transmisión</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let evento of eventos">
+      <td>{{ evento.id_evento }}</td>
+      <td>{{ evento.nombre }}</td>
+      <td>{{ evento.descripcion }}</td>
+      <td>{{ evento.fecha | date:'yyyy-MM-dd HH:mm' }}</td>
+      <td>
+        <a [href]="evento.enlace_transmision" target="_blank">
+          {{ evento.enlace_transmision }}
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br/><br/>
